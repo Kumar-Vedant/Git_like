@@ -1,7 +1,8 @@
 #include <string>
 #include <filesystem>
 #include <fstream>
-#include "iostream"
+#include <iostream>
+#include "../include/repository.hpp"
 
 namespace fs = std::filesystem;
 
@@ -59,4 +60,14 @@ void clearStagingArea() {
     cout << "Staging area cleared." << endl;
 }
 
-
+//wrote the main function to create a repository and stage files
+int main() {
+    initializeRepo(".repo");
+    createIndex();
+    stageFile("file1.txt");
+    stageFile("file2.txt");
+    showStagedFiles();
+    clearStagingArea();
+    showStagedFiles();
+    return 0;
+}
